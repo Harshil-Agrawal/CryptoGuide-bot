@@ -60,7 +60,7 @@ end_date = current_date.strftime('%Y-%m-%d')
 #Get preprocessed dataframe
 
 # @rate_limited(1, 1)
-@limits(calls=1, period=5)
+#@limits(calls=1, period=5)
 def get_preprocessed_df():
 	
 	df_btc = pd.read_csv(construct_download_url('BTC-USD', '2018-11-09', end_date, 'daily'))
