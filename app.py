@@ -16,20 +16,20 @@ st.set_page_config(page_title="Amazon Product App")
 api_key = os.getenv('API_KEY')
 api_secret = os.getenv('API_SECRET')
 
-api_key = os.environ.get(api_key)
-api_secret = os.environ.get(api_secret)
+#api_key = os.environ.get(api_key)
+#api_secret = os.environ.get(api_secret)
 
 # Sidebar contents
 with st.sidebar:
-    st.title('Cryptocurreny Price Prediction 📈🤗')
+    st.title('Cryptocurrency Price Prediction 📈🤗')
     st.markdown('''
     ## About
-    This web-app is an cryptocurrreny price prediction and trading bot based on binance API.
+    This web-app is an cryptocurrrency price prediction and trading bot based on binance API.
     ''')
 
     st.write('Made by [Harshil Agrawal](https://github.com/Harshil-Agrawal)')
 
-st.header("Cryptocurreny Price Prediction 📈")
+st.header("Cryptocurrency Price Prediction 📈")
 st.divider()
 
 def main():
