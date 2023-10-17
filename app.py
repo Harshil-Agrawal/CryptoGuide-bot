@@ -19,7 +19,7 @@ api_secret = os.getenv('API_SECRET')
 #api_key = os.environ.get(api_key)
 #api_secret = os.environ.get(api_secret)
 
-# Sidebar contents
+#  Sidebar contents 
 with st.sidebar:
     st.title('Cryptocurrency Price Prediction 📈🤗')
     st.markdown('''
