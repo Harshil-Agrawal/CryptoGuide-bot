@@ -2,7 +2,7 @@
 # Cryptocurrency Price Prediction App
 
 
-This web application provides cryptocurrency price predictions and includes a built-in trading bot based on the Binance API. It allows users to make informed decisions regarding cryptocurrency investments.
+This web application provides cryptocurrency price predictions and includes a built-in trading bot based on the Crypto Compare API. It allows users to make informed decisions regarding cryptocurrency investments.
 
 ## Features
 

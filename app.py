@@ -58,7 +58,5 @@ def main():
                 okay_button = st.form_submit_button(label='Okay')
     # st.divider()
 
-print(api_key,api_secret)
-
 if __name__ == '__main__':
     main()
