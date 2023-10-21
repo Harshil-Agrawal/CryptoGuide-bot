@@ -49,7 +49,7 @@ def main():
             # Bot crypto trading
             st.subheader("Trading bot 🤖: ")
             with st.form(key='my_form_bot'):
-                signal, sma_short, sma_long, buy_signal, sell_signal = get_crypto_trading(api_key, api_secret)
+                signal, sma_short, sma_long, buy_signal, sell_signal = get_crypto_trading()
                 st.write(signal)
                 st.write("Short SMA:", sma_short)
                 st.write("Long SMA:", sma_long)
