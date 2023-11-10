@@ -103,11 +103,9 @@ def get_price_prediction_model(specific_date):
 	models = {}
 
 	for coin in coins:
-		model = SARIMAX(merged_df[coin], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))
+		model = SARIMAX(merged_df[coin], order=(2, 1, 2), seasonal_order=(1, 1, 1, 12))
 		models[coin] = model.fit(disp=False)
 
-	# Specific date for prediction
-	# specific_date = '2023-08-16'
 
 	# Create a DataFrame for the specific date
 	specific_date_df = pd.DataFrame(index=[pd.to_datetime(specific_date)])

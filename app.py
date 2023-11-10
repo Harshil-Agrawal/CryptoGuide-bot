@@ -12,50 +12,87 @@ from bot import get_crypto_trading
 load_dotenv()
 st.set_page_config(page_title="Amazon Product App")
 
-# Access environment variables
-api_key = os.getenv('API_KEY')
-api_secret = os.getenv('API_SECRET')
 
 #api_key = os.environ.get(api_key)
 #api_secret = os.environ.get(api_secret)
 
 #  Sidebar contents 
 with st.sidebar:
-    st.title('Cryptocurrency Price Prediction 📈🤗')
+    st.image("CryptoGuides.png")
+    st.divider()
     st.markdown('''
     ## About
-    This web-app is an cryptocurrrency price prediction and trading bot based on binance API.
+    This is a cryptocurrrency price prediction and Crypto trading bot web-app.
     ''')
 
-    st.write('Made by [Harshil Agrawal](https://github.com/Harshil-Agrawal)')
 
-st.header("Cryptocurrency Price Prediction 📈")
+st.title("Cryptocurrency Price Prediction 📈 and Trading Bot 🤖")
 st.divider()
 
 def main():
+    
+    option = st.selectbox("Choose one", ["Currency Price Prediction", "Crypto Trading Bot"])
 
-    st.subheader("Predict future date price: ")
-    with st.form(key='my_form'):
-        date=st.date_input('Enter the date')
-        submit_button = st.form_submit_button(label='Submit')
+    if option == "Currency Price Prediction":
+        #tab1, tab2 = st.tabs(["Currency Price Prediction", "Crypto Trading Bot"])
 
-    if submit_button:
-        st.info("Predicted Price (USD):")
-        # answer = get_price_prediction_model('2023-08-16')
-        answer = get_price_prediction_model(date)
-        st.write(answer)
+        st.subheader("Predict future date price: ")
+        with st.form(key='my_form'):
+            date=st.date_input('Enter the date')
+            submit_button = st.form_submit_button(label='Submit')
 
-        if answer:
-            # Bot crypto trading
+            if submit_button:
+                st.info("Predicted Price (USD):")
+                # answer = get_price_prediction_model('2023-08-16')
+                answer = get_price_prediction_model(date)
+                st.write(answer)
+                okay_button = st.form_submit_button(label='Okay')
+
+    if option == "Crypto Trading Bot":
+        tab1, tab2, tab3 = st.tabs(["Bitcoin", "Ethereum","Litecoin"])
+
+        # Bot crypto trading
+        with tab1:
             st.subheader("Trading bot 🤖: ")
             with st.form(key='my_form_bot'):
-                signal, sma_short, sma_long, buy_signal, sell_signal = get_crypto_trading()
-                st.write(signal)
-                st.write("Short SMA:", sma_short)
-                st.write("Long SMA:", sma_long)
-                st.write("Buy signal:", buy_signal)
-                st.write("Sell signal:", sell_signal)
-                okay_button = st.form_submit_button(label='Okay')
+                date=st.date_input('Enter the date')
+                submit_button_2 = st.form_submit_button(label='Submit')
+
+                if submit_button_2:
+
+                    signal, sma_short, sma_long = get_crypto_trading(date,'BTC/USDT')
+                    st.write(signal)
+                    st.write("Short SMA:", sma_short)
+                    st.write("Long SMA:", sma_long)
+                    okay_button = st.form_submit_button(label='Okay')
+
+        with tab2:
+            st.subheader("Trading bot 🤖: ")
+            with st.form(key='my_form_bot_2'):
+                date=st.date_input('Enter the date')
+                submit_button_2 = st.form_submit_button(label='Submit')
+
+                if submit_button_2:
+
+                    signal, sma_short, sma_long = get_crypto_trading(date,'ETH/USDT')
+                    st.write(signal)
+                    st.write("Short SMA:", sma_short)
+                    st.write("Long SMA:", sma_long)
+                    okay_button = st.form_submit_button(label='Okay')     
+        
+        with tab3:
+            st.subheader("Trading bot 🤖: ")
+            with st.form(key='my_form_bot_3'):
+                date=st.date_input('Enter the date')
+                submit_button_2 = st.form_submit_button(label='Submit')
+
+                if submit_button_2:
+
+                    signal, sma_short, sma_long = get_crypto_trading(date,'LTC/USDT')
+                    st.write(signal)
+                    st.write("Short SMA:", sma_short)
+                    st.write("Long SMA:", sma_long)
+                    okay_button = st.form_submit_button(label='Okay')     
     # st.divider()
 
 if __name__ == '__main__':
