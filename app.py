@@ -45,7 +45,12 @@ def main():
                 st.info("Predicted Price (USD):")
                 # answer = get_price_prediction_model('2023-08-16')
                 answer = get_price_prediction_model(date)
-                st.write(answer)
+                P_BTC = answer["Bitcoin"]
+                P_ETH = answer["Ethereum"] 
+                P_LTC = answer["Litecoin"]  
+                st.write("Price of Bitcoin: ",P_BTC)
+                st.write("Price of Ethereum: ",P_ETH)
+                st.write("Price of Litecoin: ",P_LTC)
                 okay_button = st.form_submit_button(label='Okay')
 
     if option == "Crypto Trading Bot":
